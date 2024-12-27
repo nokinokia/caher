@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.ribbon-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.ribbon {
+  position: relative;
+  background: #ff5733; /* Background color of the ribbon */
+  color: #fff; /* Text color */
+  padding: 20px 0; /* Adjust padding as needed */
+  text-align: center;
+  width: calc(100% + 40px); /* Extend the width to cover the full screen */
+  margin-left: -20px; /* Shift the ribbon to the left */
+  transform: rotate(-3deg); /* Slightly angle the ribbon */
+  transform-origin: 0 0;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.ribbon-mirror {
+  position: relative;
+  background: #ff5733; /* Background color of the ribbon */
+  color: #fff; /* Text color */
+  padding: 20px 0; /* Adjust padding as needed */
+  text-align: center;
+  width: calc(100% + 40px); /* Extend the width to cover the full screen */
+  margin-left: -20px; /* Shift the ribbon to the left */
+  transform: rotate(3deg); /* Slightly angle the ribbon */
+  transform-origin: 0 0;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.ribbon-text {
+  display: inline-block;
+  font-size: 1.5em; /* Adjust text size as needed */
+}
+
+.container {
+  min-height: 100vh;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 500px; /* Set your desired height for the hero section */
+}
+.hero img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.button {
+  width: 9rem; /* Adjust the size */
+  height: 4rem; /* Adjust the size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff6140;
+  color: white;
+  font-bold: bold;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 0; /* Square corners */
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    #ff5733,
+    /* Base color */ #ff704d,
+    /* Light orange */ #ff8c66,
+    /* Soft orange */ #ffb366,
+    /* Pale orange */ #ffcc99,
+    /* Very light orange */ #ffffcc /* Very light cream (almost white) */
+  );
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  animation: rainbow 3s linear infinite;
+  opacity: 0;
+}
+.button:hover::before {
+  opacity: 1;
+}
+.button:focus::before {
+  opacity: 1;
+}
+
+@keyframes rainbow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
